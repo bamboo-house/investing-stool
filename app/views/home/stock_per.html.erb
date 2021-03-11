@@ -2,7 +2,7 @@
   <%# リンク　パンくず %>
   <div class="container-fluid">
     <div class="row pt-2 mx-0">
-      <div class="col-4">
+      <div class="col-5 px-0">
         <nav>
           <ol class="breadcrumb breadcrumb-01">
             <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
           </ol>
         </nav>
       </div>
-      <div class="col-4 ml-auto text-right">
+      <div class="col-5 ml-auto text-right">
         <ul class="list-unstyled list-inline">
           <li class="list-inline-item"><a href="https://twitter.com/share?url=#{request.url}" onclick="window.open(this.href, 'TWwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"><img src="https://www.axalpha.com/blog/wp-content/themes/axalpha_blog/img/next/icon-tw.png" srcset="https://www.axalpha.com/blog/wp-content/themes/axalpha_blog/img/next/icon-tw.png 1x,https://www.axalpha.com/blog/wp-content/themes/axalpha_blog/img/next/icon-tw@2x.png 2x" width="30" height="30" alt="Twitter" scale="0"></a></li>
           <li class="list-inline-item"><a href="http://www.facebook.com/share.php?u=#{request.url}" onclick="window.open(encodeURI(decodeURI(this.href)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes'); return false;" rel="nofollow"><img src="https://www.axalpha.com/blog/wp-content/themes/axalpha_blog/img/next/icon-fb.png" srcset="https://www.axalpha.com/blog/wp-content/themes/axalpha_blog/img/next/icon-fb.png 1x,https://www.axalpha.com/blog/wp-content/themes/axalpha_blog/img/next/icon-fb@2x.png 2x" width="30" height="30" alt="Facebook" scale="0"></a></li>
@@ -110,11 +110,12 @@
         <div class="row mb-5 pb-5">
           <div class="col-12">
             <h4>PERとは</h4>
-            <div class="per-01">PER　=　株価　÷　EPS (１株あたりの利益)</div>
             <p>
-            PER(株価収益率) は、株価を EPS(１株あたりの利益)で割って計算することができます。また、時価総額を純利益で割ることでも求めることができます。
-            PER は業種によって水準が異なっており、PER が高いほど割高で、低いほど割安とされています。PER を考える際には、業種の平均PER、競合他社のPER を考慮して、割高か割安かを判断する必要があります。なお、東証一部の平均PER は約15倍になっているので、15倍程度を目安として考えることができます。
-            
+              <span class="per-01">PER　=　株価　÷　EPS (１株あたりの利益)</span><br>
+              <span class="per-01">PER　=　時価総額　÷　純利益</span><br>    
+              PER(株価収益率) は、株価を EPS(１株あたりの利益)で割って計算することができます。また、時価総額を純利益で割ることでも求めることができます。
+              PER は業種によって水準が異なっており、PER が高いほど割高で、低いほど割安とされています。PER を考える際には、業種の平均PER、競合他社のPER を考慮して、割高か割安かを判断する必要があります。なお、東証一部の平均PER は約15倍になっているので、15倍程度を目安として考えることができます。
+              
             </p>
           </div>
         </div>
