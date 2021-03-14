@@ -1,9 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
 
-// メイン
+// パーシャル
+@import 'footer';
+@import 'home';
+@import 'calc-page';
+
+// 全体
+
 body {
   background-color: rgb(245, 243, 243);
 }
+
+// ヘッダーはなし
+
+// 見出し
 
 .breadcrumb-01 {
   background-color: rgb(245, 243, 243);
@@ -14,131 +26,3 @@ body {
   border-bottom: 1px solid;
 }
 
-#line-buttom {
-  display: inline-block;
-  padding-top: 30px;
-}
-
-
-// 計算
-
-.cul-form-01 {
-  margin: 100px 15px 0px 15px;
-}
-
-.cul-form-02 {
-  margin: 150px 15px 150px 15px;
-}
-
-.index-01 {
-  margin-bottom: 100px;
-}
-
-.index-02 {
-  width: 100%;
-  border-left: 3px solid #000000;
-  border-radius: 2px;
-  background-color: #e1e2e4;
-  padding: 10px 15px;
-  color: rgb(0, 0, 0);
-  margin-left: -3px;
-}
-
-.input-name {
-  font-size: 20px;
-}
-
-.input-01 {
-  width: 100%;
-  height: 40px;
-  font-size: 20px;
-  border: 1px solid rgb(116, 116, 116);
-  border-radius: 10px;
-}
-
-input[type="number"]:focus {
-  border: 2px solid #29989c;
-  outline: 0;
-}
-
-input[type="text"]:focus {
-  border: 1px solid rgb(116, 116, 116);
-  outline: 0;
-}
-
-.input-02 {
-  font-size: 30px;
-  font-weight: 300;
-}
-
-.input-02-1 {
-  font-size: 25px;
-  font-weight: 300;
-}
-
-.input-02-2 {
-  font-size: 25px;
-  font-weight: 300;
-  transform: scaleY(0.5);
-}
-
-.input-03 {
-  width: 130px;
-  height: 35px;
-  color: white;
-  background-color:#5F9EA0; 
-  border: 1px solid rgb(116, 116, 116);
-  border-radius: 5px;
-
-}
-
-.supple {
-  font-size: 15px;
-}
-
-// 説明文
-
-h4 {
-  width: 100%;
-  border-left: 3px solid #000000;
-  border-radius: 2px;
-  background-color: #e1e2e4;
-  padding: 10px 15px;
-  color: rgb(0, 0, 0);
-  margin-left: -3px;
-  margin-bottom: 30px;
-}
-
-.per-01 {
-  display: inline-block;
-  font-size: 17px;
-  background-color: #ff9;
-  padding: 0px;
-  margin-bottom: 17px;
-}
-
-
-// フッター
-
-footer {
-  text-align: center;
-  padding: 5px 0px 5px 0px;
-}
-
-footer a {
-  font-size: 15px;
-}
-
-footer div {
-  font-size: small;
-  color: #e4e1e1;
-  padding-top: 12px;
-}
-
-.footer-left {
-  padding-right: 25px;
-}
-
-.footer-right {
-  padding-left: 25px;
-}
