@@ -1,10 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
-// @import "font-awesome-sprockets";
-// @import "font-awesome";
-
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 // パーシャル
 @import 'footer';
-@import 'home';
+@import 'top';
 @import 'calc-page';
 
 // 全体

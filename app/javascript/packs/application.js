@@ -16,9 +16,10 @@ ActiveStorage.start()
 // こいつを追加してstock_per.js.erbのJQueryのコードを読み込めるようにする
 window.$ = $;
 
-// bootstrap導入
+// bootstrap・fontawesome導入
 import 'bootstrap'
-import '../stylesheets/application'
+import '@fortawesome/fontawesome-free/js/all'
+import '../stylesheets/application.scss'
 
 // require("@rails/ujs").start()
 // require("turbolinks").start()
