@@ -46,7 +46,7 @@ set :application, 'investing-stool'
 
 # cloneするgitのレポジトリ
 # 1-3で設定したリモートリポジトリのurl
-set :repo_url, 'git@github.com:bamboo-house/investing-stool.git'
+set :repo_url, 'https://github.com/bamboo-house/investing-stool.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, 'master'
