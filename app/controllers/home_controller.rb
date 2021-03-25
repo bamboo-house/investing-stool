@@ -9,13 +9,10 @@ class HomeController < ApplicationController
     market_cap = params[:market_cap].to_f
     net_income = params[:net_income].to_f
 
-    
     @result_per1 = (stock_price / eps).round(2)
-    
     @result_per2 = (market_cap / net_income).round(2)
     
-    
-
+    @current_index = "PER"
   end
   
 end

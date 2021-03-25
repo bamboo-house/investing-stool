@@ -4,11 +4,22 @@
 @import 'footer';
 @import 'top';
 @import 'calc-page';
+@import 'breadcrumbs';
 
 // 全体
 
 body {
   background-color: rgb(245, 243, 243);
+}
+
+.a-01 {
+  text-decoration: none;
+  color: white;
+}
+
+.a-01:hover {
+  text-decoration: none;
+  text-shadow: 1px;
 }
 
 // ヘッダーはなし
