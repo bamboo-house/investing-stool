@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PER(株価収益率)計算サイト | 投資家のためのツール - Stool</title>
+    <title><%= yield(:title) %> | 投資家のための計算ツール - Stool</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -15,28 +15,21 @@
   </head>
 
   <body>
+    <!--ヘッダー-->
     <%= render "layouts/nav" %>
 
     <!--広告（上）-->
-    <div class="container-fluid border-bottom ">
-      <div class="row">
-        <div class="col-12 my-2 ">
-          <img src="images/image-03jpg" class="img-fluid" style="width: 100%; height: 80px;" >
-        </div>
-      </div>
-    </div>
+    <%= render "layouts/top-ad" %>
 
+
+    <!--メインコンテンツ-->
     <%= yield %>
 
+
     <!--広告（下）-->
-    <div class="container-fluid ">
-      <div class="row">
-        <div class="col-12 my-2 ">
-          <img src="images/image-03jpg" class="img-fluid" style="width: 100%; height: 80px;" >
-        </div>
-      </div>
-    </div>
-    
+    <%= render "layouts/bottom-ad" %>
+
+    <!--フッター-->
     <%= render "layouts/footer" %>
   </body>
 </html>

@@ -14,5 +14,21 @@ class HomeController < ApplicationController
     
     @current_index = "PER"
   end
+
+  def stock_pbr
+
+
+
+    
+    @current_index = "PBR"
+  end
+
+  def stock_roe
+       
+
+
+    
+    @current_index = "ROE"
+  end
   
 end

@@ -1,4 +1,4 @@
-<% provide(:title, "PBR(純資産倍率)計算サイト") %>
+<% provide(:title, "PER(株価収益率)計算サイト") %>
 
 <main>
   <%# リンク　パンくず %>
@@ -31,7 +31,7 @@
         <div class="row">
           <div class="col-12 text-center border-01">
             <h2><%=@current_index%>計算</h2>
-            <p>株価,EPS,時価総額,純利益 をもとにPERを計算します</p>
+            <p>株価,BPS,時価総額,純資産 をもとにPBRを計算します</p>
           </div>
         </div>
 
@@ -40,13 +40,13 @@
           <%# 計算入出力1 %>
           <div class="cul-form-01 ">
             <div class="row">
-              <div class="col-12 px-0 index-01"><h5 class="index-02">PERを株価、EPS(予想１株あたりの利益) で計算します</h5></div>
+              <div class="col-12 px-0 index-01"><h5 class="index-02">PBRを株価、BPS(予想１株あたりの純資産) で計算します</h5></div>
             </div>
 
             <div class="row justify-content-between pb-md-1 input-name">
               <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">株価</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">EPS</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PER</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">BPS</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PBR</div>
             </div>
         
               <div class="row justify-content-between align-items-center"%>
@@ -57,14 +57,14 @@
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
-                <div class="col-3 d-md-none px-0 input-name">EPS</div>
+                <div class="col-3 d-md-none px-0 input-name">BPS</div>
                 <div class="col-9 col-md-3 px-0 "><%= number_field_tag :eps ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
-                <div class="col-3 d-md-none px-0 input-name">PER</div>
+                <div class="col-3 d-md-none px-0 input-name">PBR</div>
                 <div class="col-9 col-md-3 px-0 "><%= text_field_tag :per ,nil ,id: "result_per1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>
@@ -73,14 +73,14 @@
           <%# 計算入出力2 %>
           <div class="cul-form-02 ">
             <div class="row">
-              <div class="col-12 px-0 index-01"><h5 class="index-02">PERを時価総額、純利益(当期純利益)で計算します</h5></div>
+              <div class="col-12 px-0 index-01"><h5 class="index-02">PBRを時価総額、純資産(当期純資産) で計算します</h5></div>
               <p class ="col-12 pb-4 px-0 pl-1 supple">※　最小単位を百万円にすると簡単に計算できます</p>
             </div>
 
             <div class="row justify-content-between pb-md-1 input-name">
               <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">時価総額</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">純利益</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PER</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">純資産</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PBR</div>
             </div>
               <div class="row justify-content-between align-items-center"%>
                 <div class="col-3 d-md-none px-0 input-name">時価総額</div>
@@ -90,14 +90,14 @@
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
-                <div class="col-3 d-md-none px-0 input-name">純利益</div>
+                <div class="col-3 d-md-none px-0 input-name">純資産</div>
                 <div class="col-9 col-md-3 px-0 "><%= number_field_tag :net_income ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
-                <div class="col-3 d-md-none px-0 input-name">PER</div>
+                <div class="col-3 d-md-none px-0 input-name">PBR</div>
                 <div class="col-9 col-md-3 px-0 "><%= text_field_tag :per ,nil ,id: "result_per2",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>

@@ -2,7 +2,7 @@
   <%# リンク　パンくず %>
   <div class="container-fluid">
     <div class="row pt-2 mx-0">
-      <div class="col-5 px-0">
+      <div class="col-4 px-0">
         <nav>
           <ol class="breadcrumb breadcrumb-01">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -10,7 +10,7 @@
           </ol>
         </nav>
       </div>
-      <div class="col-6 ml-auto text-right">
+      <div class="col-8 text-right">
         <ul class="list-unstyled list-inline">
           <li class="list-inline-item"><a id="b-twitter" href="https://twitter.com/share?url=<%= request.url%>&text=投資分析ツール『Stool』を使って<%=@current_index%>を計算してみよう！" rel="nofollow" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
           <li class="list-inline-item px-3"><a id="b-facebook" href="https://www.facebook.com/share.php?u=<%=request.url%>" rel="nofollow" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>    
@@ -20,32 +20,54 @@
     </div>
   </div>
   <%# メイン %>
-  <div class="container-fluid">
+  <div class="container-fluid mt-4">
     <div class="row justify-content-around">
       <div class="col-9">
 
         <%# 見出し %>
         <div class="row">
-          <div class="col-12 pt-2 text-center border-01">
-            <h1>PER計算</h1>
-            <p>株価,EPS,時価総額,純利益 をもとにPERを計算します</p>
+          <div class="col-12 text-center border-01">
+            <h2>計算指標一覧</h2>
+            <p></p>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-12 mt-5">
-            <ul class="construction" >
-              <li>ファンダメンタル分析</li>
-                <ul >
-                  <li>PER</li>
-                  <li>PBR</li>
-                  <li>ROE</li>
-                  <li>EPS</li>
+        <%# ファンダメンタル %>
+          <div class="cul-form-01 index-01">
+            <div class="row">
+              <div class="col-12 px-0 mb-5">
+                <div class="h4 index-03 d-flex align-items-center"><i class="fas fa-chart-pie fa-2x pr-2"></i>ファンダメンタル分析の指標</div>
+              </div>
+            </div>
+            <%# ファンダメンタルの指標一覧 %>
+            <div class="row">
+              <div class="col-12">
+                <ul id="list">
+                  <li>
+                    <a href="/stock_per">PER（株価収益率）</a>
+                    <p>企業の収益に対して、株価が割安かはかる指標。一般的に15倍以下が割安となる。</p>
+                  </li>
+                  <li>
+                    <a>PBR（純資産倍率）</a>
+                    <p>企業が持つ資本に対して、株価が割安かはかる指標。一般的に１倍以下が割安となる。</p> 
+                  </li>
+                  <li>
+                    <a>ROE（自己資本利益率）</a>
+                    <p> 企業が株主の投資金に対して、どれだけ効率的に、利益を生み出しているのかを示す指標。一般的に、10~20%程度が優良企業となる。</p>
+                  </li>
+                  <li>
+                    <a>ROA（純資産利益率）</a>
+                    <p>企業が総資産に対して、どれだけ効率的に利益が生み出しているのかを示す指標。一般的に、５％以上が優良企業となる。</p>
+                  </li>
+                  <li>
+                    <a>PCFR</a>
+                    <p>PERを補完する指標。高PERでも設備投資に積極的な企業は低PCFRとなる。</p>
+                  </li>
                 </ul>
-            </ul>
-            
+              </div>
+            </div>
+
           </div>
-        </div>
+
       </div>
     </div>
   </div>

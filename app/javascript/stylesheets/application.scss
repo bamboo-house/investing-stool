@@ -1,12 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 // パーシャル
+@import 'homepage';
+@import 'advertisement';
 @import 'footer';
 @import 'top';
 @import 'calc-page';
 @import 'breadcrumbs';
 
 // 全体
+
 
 body {
   background-color: rgb(245, 243, 243);
