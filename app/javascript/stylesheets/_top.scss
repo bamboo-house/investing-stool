@@ -1,89 +1,29 @@
-.construction{
+.index-03 {
+  font-style: italic;
+  padding: 4px;
+}
 
-  list-style-type: none;
-  
+#list {
+  padding-left: 60px;
+  background: #e6e5e5;
+  border-radius :8px;/*角の丸み*/
+  box-shadow :0px 0px 5px silver;/*5px=影の広がり具合*/
+  padding: 0.5em 0.5em 0.5em 2em;
+
+}
+
+#list a {
+  font-size: 18px;
+}
+
+#list li {
+  list-style: circle;
+  line-height: 1.7;
+  padding: 20px 0;
+}
+
+@media screen and (max-width: 480px) {
+  #list p {
+    font-size: 13px;
   }
-  
-  .construction ul {
-  
-  margin: 0;
-  
-  padding: 0;
-  
-  list-style-type: none;
-  
-  }
-  
-  .construction ul {
-  
-  position: relative;
-  
-  /* margin-top: 1rem; */
-  
-  margin-left: 15px;
-  
-  }
-  
-  .construction ul:before {
-  
-  content: "";
-  
-  display: block;
-  
-  position: absolute;
-  
-  top: 0;
-  
-  bottom: 0;
-  
-  left: 0;
-  
-  width: 0;
-  
-  border-left: 1px solid gray;
-  
-  }
-  
-  .construction ul li {
-  
-  position: relative;
-  
-  margin: 0;
-  
-  padding: 7px 15px;
-  
-  /* padding: 0; */
-  
-  }
-  
-  .construction ul li:before {
-  
-  content: "";
-  
-  display: block;
-  
-  position: absolute;
-  
-  top: 15px;
-  
-  left: 0;
-  
-  width: 15px;
-  
-  height: 0;
-  
-  border-top: 1px solid gray;
-  
-  }
-  
-  .construction ul li:last-child:before {
-  
-  top: 15px;
-  
-  bottom: 0;
-  
-  height: auto;
-  
-  background-color: #fff;
-  
-  }
+}
