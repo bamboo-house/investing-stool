@@ -1,4 +1,4 @@
-<% provide(:title, "PER(株価収益率)計算サイト") %>
+<% provide(:title, "PBR(株価収益率)計算サイト") %>
 
 <main>
   <%# リンク　パンくず %>
@@ -36,7 +36,7 @@
         </div>
 
         <%# 計算入出力 %>
-        <%= form_tag('stock_per', remote: true) do %>
+        <%= form_tag('stock_pbr', remote: true) do %>
           <%# 計算入出力1 %>
           <div class="cul-form-01 ">
             <div class="row">
@@ -58,14 +58,14 @@
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
                 <div class="col-3 d-md-none px-0 input-name">BPS</div>
-                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :eps ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
+                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :bps ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
                 <div class="col-3 d-md-none px-0 input-name">PBR</div>
-                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :per ,nil ,id: "result_per1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
+                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :pbr ,nil ,id: "result_pbr1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>
           </div>
@@ -91,14 +91,14 @@
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
                 <div class="col-3 d-md-none px-0 input-name">純資産</div>
-                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :net_income ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
+                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :net_assets ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
                 <div class="col-3 d-md-none px-0 input-name">PBR</div>
-                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :per ,nil ,id: "result_per2",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
+                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :pbr ,nil ,id: "result_pbr2",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>
           </div>
@@ -107,11 +107,11 @@
         <%# PERの説明 %>
         <div class="row mb-5 pb-5">
           <div class="col-12">
-            <h4>PERとは</h4>
+            <h4>PBR(純資産倍率)とは</h4>
             <p>
-              <span class="per-01">PER　=　株価　÷　EPS (１株あたりの利益)</span><br>
-              <span class="per-01">PER　=　時価総額　÷　純利益</span><br>    
-              PERとは『Price Earnings Ratio』の略で、上記の方法で算出します。PER の値は業種によって水準が異なっており、高いほど割高で、低いほど割安とされています。また、PER を考える際には、業種の平均PER、競合他社のPER を考慮して、割高か割安かを判断する必要があります。なお、東証一部の平均PER は約15倍になっているので、15倍程度を目安として考えることができます。
+              <span class="per-01">PBR　=　株価　÷　BPS (１株あたりの純資産)</span><br>
+              <span class="per-01">PBR　=　時価総額　÷　純資産</span><br>    
+              PBRとは『Price Book-value Ratio』の略で、上記の方法で算出します。PBR の値は業種によって水準が異なっており、高いほど割高で、低いほど割安とされています。また、PBR を考える際には、業種の平均PBR、競合他社のPBR を考慮して、割高か割安かを判断する必要があります。なお、東証一部の平均PBR は約1.40倍になっているので、1.40倍程度を目安として考えることができます。
               
             </p>
           </div>

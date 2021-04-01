@@ -14,7 +14,7 @@
       </div>
       <div class="col-8 text-right">
         <ul class="list-unstyled list-inline">
-          <li class="list-inline-item"><a id="b-twitter" href="https://twitter.com/share?url=<%= request.url%>&text=投資分析ツール『Stool』を使って<%=@current_index%>を計算してみよう！" rel="nofollow" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+          <li class="list-inline-item"><a id="b-twitter" href="https://twitter.com/share?url=<%= request.url%>&text=投資分析ツール『Stool』を使って指標を計算してみよう！" rel="nofollow" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
           <li class="list-inline-item px-3"><a id="b-facebook" href="https://www.facebook.com/share.php?u=<%=request.url%>" rel="nofollow" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>    
           <li class="list-inline-item"><a id="b-line" href="https://social-plugins.line.me/lineit/share?url=<%=request.url%>" target="_blank" rel="nofollow"><i class="fab fa-line fa-2x"></i></a></li>
         </ul>
@@ -49,20 +49,20 @@
                     <p>企業の収益に対して、株価が割安かはかる指標。一般的に15倍以下が割安となる。</p>
                   </li>
                   <li>
-                    <a>PBR（純資産倍率）</a>
+                    <a href="/stock_pbr">PBR（純資産倍率）</a>
                     <p>企業が持つ資本に対して、株価が割安かはかる指標。一般的に１倍以下が割安となる。</p> 
                   </li>
                   <li>
-                    <a>ROE（自己資本利益率）</a>
+                    <a>PCFR（株価キャッシュフロー倍率）</a>
+                    <p>企業の営業キャッシュフローに対して、株価が割安かはかる指標。営業キャッシュフローは「純利益」から「減価償却費」を外したものなので、PERを補完する役割を持つ。一般的に7倍以下が割安となる。</p>
+                  </li>
+                  <li>
+                    <a href="/stock_roe">ROE（自己資本利益率）</a>
                     <p> 企業が株主の投資金に対して、どれだけ効率的に、利益を生み出しているのかを示す指標。一般的に、10~20%程度が優良企業となる。</p>
                   </li>
                   <li>
                     <a>ROA（純資産利益率）</a>
                     <p>企業が総資産に対して、どれだけ効率的に利益が生み出しているのかを示す指標。一般的に、５％以上が優良企業となる。</p>
-                  </li>
-                  <li>
-                    <a>PCFR</a>
-                    <p>PERを補完する指標。高PERでも設備投資に積極的な企業は低PCFRとなる。</p>
                   </li>
                 </ul>
               </div>

@@ -31,41 +31,42 @@
         <div class="row">
           <div class="col-12 text-center border-01">
             <h2><%=@current_index%>計算</h2>
-            <p>株価,EPS,時価総額,純利益 をもとにPERを計算します</p>
+            <p>純利益,自己資本(純資産),EPS,BPS をもとに<%=@current_index%>を計算します</p>
           </div>
         </div>
 
         <%# 計算入出力 %>
-        <%= form_tag('stock_per', remote: true) do %>
+        <%= form_tag('stock_roe', remote: true) do %>
           <%# 計算入出力1 %>
           <div class="cul-form-01 ">
             <div class="row">
-              <div class="col-12 px-0 index-01"><h5 class="index-02">PERを株価、EPS(予想１株あたりの利益) で計算します</h5></div>
+              <div class="col-12 px-0 index-01"><h5 class="index-02"><%=@current_index%>を純利益、自己資本(純資産) で計算します</h5></div>
+              <p class ="col-12 pb-4 px-0 pl-1 supple">※　百万円から入力することで簡単に計算できます</p>
             </div>
 
             <div class="row justify-content-between pb-md-1 input-name">
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">株価</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">EPS</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PER</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">純利益</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">自己資本</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block "><%=@current_index%></div>
             </div>
         
               <div class="row justify-content-between align-items-center"%>
-                <div class="col-3 d-md-none px-0 input-name">株価</div>
-                <div class="col-9 col-md-3 px-0"><%= number_field_tag :stock_price ,nil ,class: "input-01", placeholder: "2500", step: "0.01" %></div>
+                <div class="col-3 d-md-none px-0 input-name">純利益</div>
+                <div class="col-9 col-md-3 px-0"><%= number_field_tag :net_income ,nil ,class: "input-01", placeholder: "100", step: "0.01" %></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> ÷ </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
-                <div class="col-3 d-md-none px-0 input-name">EPS</div>
-                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :eps ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
+                <div class="col-3 d-md-none px-0 input-name">自己資本</div>
+                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :net_assets ,nil ,class: "input-01", placeholder: "400", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
-                <div class="col-3 d-md-none px-0 input-name">PER</div>
-                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :per ,nil ,id: "result_per1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
+                <div class="col-3 d-md-none px-0 input-name"><%=@current_index%></div>
+                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :roe ,nil ,id: "result_roe1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>
           </div>
@@ -73,45 +74,45 @@
           <%# 計算入出力2 %>
           <div class="cul-form-02 ">
             <div class="row">
-              <div class="col-12 px-0 index-01"><h5 class="index-02">PER時価総額、純利益・当期純利益 で計算します</h5></div>
-              <p class ="col-12 pb-4 px-0 pl-1 supple">※　最小単位を百万円にすると簡単に計算できます</p>
+              <div class="col-12 px-0 index-01"><h5 class="index-02"><%=@current_index%>をBPS(1株当たりの純資産)、EPS(1株当たりの利益) で計算します</h5></div>
+              
             </div>
 
             <div class="row justify-content-between pb-md-1 input-name">
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">時価総額</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">純利益</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PER</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">EPS(1株当たりの利益)</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">BPS(1株当たりの純資産)</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block "><%=@current_index%></div>
             </div>
               <div class="row justify-content-between align-items-center"%>
-                <div class="col-3 d-md-none px-0 input-name">時価総額</div>
-                <div class="col-9 col-md-3 px-0"><%= number_field_tag :market_cap ,nil ,class: "input-01", placeholder: "2500", step: "0.01" %></div>
+                <div class="col-3 d-md-none px-0 input-name">EPS</div>
+                <div class="col-9 col-md-3 px-0"><%= number_field_tag :eps ,nil ,class: "input-01", placeholder: "20", step: "0.01" %></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> ÷ </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
-                <div class="col-3 d-md-none px-0 input-name">純利益</div>
-                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :net_income ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
+                <div class="col-3 d-md-none px-0 input-name">BPS</div>
+                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :bps ,nil ,class: "input-01", placeholder: "100", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
-                <div class="col-3 d-md-none px-0 input-name">PER</div>
-                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :per ,nil ,id: "result_per2",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
+                <div class="col-3 d-md-none px-0 input-name"><%=@current_index%></div>
+                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :roe ,nil ,id: "result_roe2",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>
           </div>
         <% end %>
 
-        <%# PERの説明 %>
+        <%# ROEの説明 %>
         <div class="row mb-5 pb-5">
           <div class="col-12">
-            <h4>PERとは</h4>
+            <h4>ROE(自己資本利益率)とは</h4>
             <p>
-              <span class="per-01">PER　=　株価　÷　EPS (１株あたりの利益)</span><br>
-              <span class="per-01">PER　=　時価総額　÷　純利益</span><br>    
-              PERとは『Price Earnings Ratio』の略で、上記の方法で算出します。PER の値は業種によって水準が異なっており、高いほど割高で、低いほど割安とされています。また、PER を考える際には、業種の平均PER、競合他社のPER を考慮して、割高か割安かを判断する必要があります。なお、東証一部の平均PER は約15倍になっているので、15倍程度を目安として考えることができます。
+              <span class="per-01">ROE(%)　=　純利益　÷　自己資本（純資産）　×　100</span><br>
+              <span class="per-01">ROE(%)　=　EPS(1株当たりの純利益)　÷　BPS(1株当たりの純資産)　×　100</span><br>    
+              ROEとは『Return On Equity』の略で、上記の方法で算出します。ROE の値は業種によって水準が異なっており、高いほど「自分が投資したお金を使って効率よく稼いでいる会社」で、低いほど「経営効率の悪い会社」とされています。一般的には、ROE(自己資本利益率)が10%~20% 程度であれば優良企業と判断されます。
               
             </p>
           </div>
