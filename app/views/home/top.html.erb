@@ -1,4 +1,5 @@
 <% provide(:title, "株式指標計算サイト") %>
+<% provide(:description, "計算できる株式指標をまとめています。PER(株価収益率)、PBR(純資産倍率)、PCFR(株価キャッシュフロー倍率)、ROE(自己資本利益率)、ROA(純資産利益率)などのファンダメンタル分析の指標と、簡単な説明を確認できます。") %>
 
 <main>
   <%# リンク　パンくず %>
@@ -15,8 +16,9 @@
       <div class="col-8 text-right">
         <ul class="list-unstyled list-inline">
           <li class="list-inline-item"><a id="b-twitter" href="https://twitter.com/share?url=<%= request.url%>&text=投資分析ツール『Stool』を使って指標を計算してみよう！" rel="nofollow" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
-          <li class="list-inline-item px-3"><a id="b-facebook" href="https://www.facebook.com/share.php?u=<%=request.url%>" rel="nofollow" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>    
-          <li class="list-inline-item"><a id="b-line" href="https://social-plugins.line.me/lineit/share?url=<%=request.url%>" target="_blank" rel="nofollow"><i class="fab fa-line fa-2x"></i></a></li>
+          <li class="list-inline-item px-3"><a id="b-facebook" href="https://www.facebook.com/share.php?u=<%=request.url%>" rel="nofollow" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>
+          <li class="list-inline-item"><a id="b-line" href="https://social-plugins.line.me/lineit/share?url=<%=request.url%>" target="_blank" rel="nofollow"><i class="fab fa-line fa-2x"></i></a>
+          <script type="text/javascript">LineIt.loadButton();</script></li>
         </ul>
       </div>
     </div>
@@ -37,7 +39,7 @@
           <div class="cul-form-01 index-01">
             <div class="row">
               <div class="col-12 px-0 mb-5">
-                <div class="h4 index-03 d-flex align-items-center"><i class="fas fa-chart-pie fa-2x pr-2"></i>ファンダメンタル分析の指標</div>
+                <div class="h4 index-03 d-flex align-items-center"><i class="fas fa-chart-pie fa-2x pr-2"></i>ファンダメンタル指標</div>
               </div>
             </div>
             <%# ファンダメンタルの指標一覧 %>
