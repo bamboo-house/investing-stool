@@ -79,8 +79,7 @@ namespace :deploy do
   # unicornの再起動
   desc 'Restart application'
   task :restart do
-    invoke 'unicorn:stop'
-    invoke 'unicorn:start'
+    invoke 'unicorn:restart'
   end
 
   # データベースの作成

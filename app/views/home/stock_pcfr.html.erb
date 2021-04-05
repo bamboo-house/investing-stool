@@ -1,5 +1,5 @@
-<% provide(:title, "PBR(純資産倍率)計算サイト") %>
-<% provide(:description, "PBRを計算できるサイトです。株価、BPS、時価総額、純資産 を元にPBRを計算することできます。PBR = 株価 ÷ BPS、PBR = 時価総額 ÷ 純資産 で算出します。また、PBR とはなんなのか説明しています。") %>
+<% provide(:title, "PCFR(株価キャッシュフロー倍率)計算サイト") %>
+<% provide(:description, "PCFRを計算できるサイトです。PCFR = 株価 ÷ 1株当たりの営業キャッシュフロー、PCFR = 時価総額 ÷ 営業キャッシュフロー が計算式です。また、PER とはなんなのか説明しています。") %>
 
 <main>
   <%# リンク　パンくず %>
@@ -32,41 +32,41 @@
         <div class="row">
           <div class="col-12 text-center border-01">
             <h2><%=@current_index%>計算</h2>
-            <p>株価,BPS,時価総額,純資産 をもとにPBRを計算します</p>
+            <p>株価、1株当たりの営業キャッシュフロー、時価総額、営業キャッシュフロー をもとに<%=@current_index%>を計算します</p>
           </div>
         </div>
 
         <%# 計算入出力 %>
-        <%= form_tag('stock_pbr', remote: true) do %>
+        <%= form_tag('stock_pcfr', remote: true) do %>
           <%# 計算入出力1 %>
           <div class="cul-form-01 ">
             <div class="row">
-              <div class="col-12 px-0 index-01"><h5 class="index-02">PBRを株価、BPS(予想１株あたりの純資産) で計算します</h5></div>
+              <div class="col-12 px-0 index-01"><h5 class="index-02"><%=@current_index%>を株価、1株当たりの営業キャッシュフロー で計算します</h5></div>
             </div>
 
             <div class="row justify-content-between pb-md-1 input-name">
               <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">株価</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">BPS</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PBR</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">1株当たりの営業キャッシュフロー</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block "><%=@current_index%></div>
             </div>
         
               <div class="row justify-content-between align-items-center"%>
                 <div class="col-3 d-md-none px-0 input-name">株価</div>
-                <div class="col-9 col-md-3 px-0"><%= number_field_tag :stock_price ,nil ,class: "input-01", placeholder: "2500", step: "0.01" %></div>
+                <div class="col-9 col-md-3 px-0"><%= number_field_tag :stock_price ,nil ,class: "input-01", placeholder: "100", step: "0.01" %></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> ÷ </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
-                <div class="col-3 d-md-none px-0 input-name">BPS</div>
-                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :bps ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
+                <div class="col-3 d-md-none px-0 input-name">1株当たり営業キャッシュフロー</div>
+                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :cfps ,nil ,class: "input-01", placeholder: "400", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
-                <div class="col-3 d-md-none px-0 input-name">PBR</div>
-                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :pbr ,nil ,id: "result_pbr1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
+                <div class="col-3 d-md-none px-0 input-name"><%=@current_index%></div>
+                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :pcfr ,nil ,id: "result_pcfr1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>
           </div>
@@ -74,45 +74,45 @@
           <%# 計算入出力2 %>
           <div class="cul-form-02 ">
             <div class="row">
-              <div class="col-12 px-0 index-01"><h5 class="index-02">PBRを時価総額、純資産(当期純資産) で計算します</h5></div>
-              <p class ="col-12 pb-4 px-0 pl-1 supple">※　最小単位を百万円にすると簡単に計算できます</p>
+              <div class="col-12 px-0 index-01"><h5 class="index-02"><%=@current_index%>を時価総額、営業キャッシュフロー で計算します</h5></div>
+              <p class ="col-12 pb-4 px-0 pl-1 supple">※　百万円から入力することで簡単に計算できます</p>
             </div>
 
             <div class="row justify-content-between pb-md-1 input-name">
               <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">時価総額</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">純資産</div>
-              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">PBR</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">営業キャッシュフロー</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block "><%=@current_index%></div>
             </div>
               <div class="row justify-content-between align-items-center"%>
                 <div class="col-3 d-md-none px-0 input-name">時価総額</div>
-                <div class="col-9 col-md-3 px-0"><%= number_field_tag :market_cap ,nil ,class: "input-01", placeholder: "2500", step: "0.01" %></div>
+                <div class="col-9 col-md-3 px-0"><%= number_field_tag :market_cap ,nil ,class: "input-01", placeholder: "20", step: "0.01" %></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> ÷ </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
 
-                <div class="col-3 d-md-none px-0 input-name">純資産</div>
-                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :net_assets ,nil ,class: "input-01", placeholder: "150", step: "0.01"%></div>
+                <div class="col-3 d-md-none px-0 input-name">営業キャッシュフロー</div>
+                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :operating_cashflows ,nil ,class: "input-01", placeholder: "100", step: "0.01"%></div>
                 <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
 
                 <!--スマホサイズの時-->
                 <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
 
-                <div class="col-3 d-md-none px-0 input-name">PBR</div>
-                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :pbr ,nil ,id: "result_pbr2",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
+                <div class="col-3 d-md-none px-0 input-name"><%=@current_index%></div>
+                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :pcfr ,nil ,id: "result_pcfr2",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
                 <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
               </div>
           </div>
         <% end %>
 
-        <%# PERの説明 %>
+        <%# ROEの説明 %>
         <div class="row mb-5 pb-5">
           <div class="col-12">
-            <h4>PBR(純資産倍率)とは</h4>
+            <h4>PCFR（株価キャッシュフロー倍率）とは</h4>
             <p>
-              <span class="per-01">PBR　=　株価　÷　BPS (１株あたりの純資産)</span><br>
-              <span class="per-01">PBR　=　時価総額　÷　純資産</span><br>    
-              PBRとは『Price Book-value Ratio』の略で、上記の方法で算出します。PBR の値は業種によって水準が異なっており、高いほど割高で、低いほど割安とされています。また、PBR を考える際には、業種の平均PBR、競合他社のPBR を考慮して、割高か割安かを判断する必要があります。なお、東証一部の平均PBR は約1.40倍になっているので、1.40倍程度を目安として考えることができます。
+              <span class="per-01">PCFR　=　株価　÷　1株当たりの営業キャッシュフロー</span><br>
+              <span class="per-01">PCFR　=　時価総額　÷　営業キャッシュフロー</span><br>    
+              ROEとは『Price Cash Flow Ratio』の略で、上記の方法で算出します。PCFRが高いほど割高で、低いほど割安とされています。また、PCFRを考える際には、業種の平均PCFR、競合他社のPCFRを考慮して、割高か割安かを判断する必要があります。一般的には、PCFRが7 倍以下であれば割安と判断されます。
               
             </p>
           </div>

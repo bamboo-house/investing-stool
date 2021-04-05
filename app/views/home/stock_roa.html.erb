@@ -1,0 +1,97 @@
+<% provide(:title, "ROA（純資産利益率）計算サイト") %>
+<% provide(:description, "ROAを計算できるサイトです。純利益、総資産 を元にROAを計算することできます。ROA(%) = 当期純利益 ÷ 総資産 × 100 で算出します。また、PER とはなんなのか説明しています。") %>
+
+<main>
+  <%# リンク　パンくず %>
+  <div class="container-fluid">
+    <div class="row pt-2 mx-0">
+      <div class="col-4 px-0">
+        <nav>
+          <ol class="breadcrumb breadcrumb-01">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active"><%=@current_index%></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-8 text-right">
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item"><a id="b-twitter" href="https://twitter.com/share?url=<%= request.url%>&text=投資分析ツール『Stool』を使って<%=@current_index%>を計算してみよう！" rel="nofollow" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+          <li class="list-inline-item px-3"><a id="b-facebook" href="https://www.facebook.com/share.php?u=<%=request.url%>" rel="nofollow" target="_blank"><i class="fab fa-facebook fa-2x"></i></a></li>    
+          <li class="list-inline-item"><a id="b-line" href="https://social-plugins.line.me/lineit/share?url=<%=request.url%>" target="_blank" rel="nofollow"><i class="fab fa-line fa-2x"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <%# メイン %>
+  <div class="container-fluid mt-4">
+    <div class="row justify-content-around">
+      <div class="col-9">
+
+        <%# 見出し %>
+        <div class="row">
+          <div class="col-12 text-center border-01">
+            <h2><%=@current_index%>計算</h2>
+            <p>純利益、総資産 をもとに<%=@current_index%>を計算します</p>
+          </div>
+        </div>
+
+        <%# 計算入出力 %>
+        <%= form_tag('stock_roa', remote: true) do %>
+          <%# 計算入出力1 %>
+          <div class="cul-form-01 ">
+            <div class="row">
+              <div class="col-12 px-0 index-01"><h5 class="index-02"><%=@current_index%>を純利益、総資産(純資産 + 負債) で計算します</h5></div>
+              <p class ="col-12 pb-4 px-0 pl-1 supple">※　百万円から入力することで簡単に計算できます</p>
+            </div>
+
+            <div class="row justify-content-between pb-md-1 input-name">
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">純利益</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block ">総資産</div>
+              <div class="col-md-3 px-0 pl-1 d-none d-md-inline-block "><%=@current_index%></div>
+            </div>
+        
+              <div class="row justify-content-between align-items-center"%>
+                <div class="col-3 d-md-none px-0 input-name">純利益</div>
+                <div class="col-9 col-md-3 px-0"><%= number_field_tag :net_income ,nil ,class: "input-01", placeholder: "100", step: "0.01" %></div>
+                <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> ÷ </div>
+
+                <!--スマホサイズの時-->
+                <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-1"> ÷ </div>
+
+                <div class="col-3 d-md-none px-0 input-name">総資産</div>
+                <div class="col-9 col-md-3 px-0 "><%= number_field_tag :total_assets ,nil ,class: "input-01", placeholder: "400", step: "0.01"%></div>
+                <div class="col-12 col-md-auto d-none d-md-inline-block text-md-center input-02"> = </div>
+
+                <!--スマホサイズの時-->
+                <div class="col-12 col-md-auto d-md-none pl-2 py-2 text-md-center input-02-2"> || </div>
+
+                <div class="col-3 d-md-none px-0 input-name"><%=@current_index%></div>
+                <div class="col-9 col-md-3 px-0 "><%= text_field_tag :roa ,nil ,id: "result_roa1",class: "input-01" ,placeholder: "結果", step: "0.01", readonly: true%></div>
+                <div class="col-12 text-center mt-5 mt-md-5"><%= submit_tag "計算する",class: "input-03" %></div>
+              </div>
+          </div>
+        <% end %>
+
+        <%# ROAの説明 %>
+        <div class="row mb-5 pb-5 mt-5 pt-5">
+          <div class="col-12">
+            <h4>ROA（純資産利益率）とは</h4>
+            <p>
+              <span class="per-01">ROA(%)　=　純利益　÷　総資産（純資産 + 負債）　×　100</span><br> 
+              ROAとは『Return On Assets』の略で、上記の方法で算出します。ROA の値は業種によって水準が異なっており、高いほど「株主のお金と負債のお金を使って効率よく稼いでいる会社」で、低いほど「経営効率の悪い会社」とされています。一般的には、ROA(総資産利益率)が5％を超えていると優良企業であると判断されます。
+              
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
